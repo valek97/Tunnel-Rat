@@ -60,6 +60,9 @@
     <Compile Include="Assets\Scripts\Hero\Hero.cs" />
     <Compile Include="Assets\MainMenu.cs" />
     <Compile Include="Assets\Scripts\LimitFPS.cs" />
+    <Compile Include="Assets\Scripts\Enemies\Obstacle.cs" />
+    <Compile Include="Assets\Scripts\Enemies\Entity.cs" />
+    <Compile Include="Assets\Scripts\Enemies\Worm.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

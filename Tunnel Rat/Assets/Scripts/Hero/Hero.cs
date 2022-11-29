@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Hero : MonoBehaviour
+public class Hero : Entity
 {
     [SerializeField]private float speed = 5f;
     [SerializeField]private int lives = 5;
@@ -12,6 +12,8 @@ public class Hero : MonoBehaviour
     private Rigidbody2D rb;
     private Animator anim;
     private SpriteRenderer sprite;
+
+    public static Hero Instance { get;  set; }
 
     private States State
     {
@@ -23,6 +25,7 @@ public class Hero : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         sprite = GetComponent<SpriteRenderer>();
+        Instance = this;
     }
     private void FixedUpdate()
     {
@@ -54,6 +57,11 @@ public class Hero : MonoBehaviour
         isGrounded = collider.Length > 1;
         if (!isGrounded) State = States.jump;
         //Debug.Log($"collider.Length = "+ collider.Length);
+    }
+    public override void GetDamage()
+    {
+        lives -= 1;
+        Debug.Log(lives);
     }
 
 }
