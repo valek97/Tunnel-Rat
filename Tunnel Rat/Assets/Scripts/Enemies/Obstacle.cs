@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Obstacle : MonoBehaviour
+public class Obstacle : Entity
 {
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -10,5 +10,20 @@ public class Obstacle : MonoBehaviour
         {
             Hero.Instance.GetDamage();
         }
+
+       /* if (this.transform.position.y < -20f)
+        {
+            Die();
+        }*/
+
     }
+
+    private void Update()
+    {
+        if (this.transform.position.y < -20f)
+        {
+            Die();
+        }
+    }
+
 }
