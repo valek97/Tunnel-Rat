@@ -6,7 +6,7 @@ public class Hero : Entity
 {
     [SerializeField]private float speed = 5f;
     [SerializeField]private int lives = 5;
-    [SerializeField]private float jumpForce = 30f;
+    [SerializeField]private float jumpForce = 50f;
     private bool isGrounded = false;
 
     private Rigidbody2D rb;
