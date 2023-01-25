@@ -60,6 +60,7 @@
     <Compile Include="Assets\Scripts\WaveSpawner.cs" />
     <Compile Include="Assets\Scripts\Hero\Hero.cs" />
     <Compile Include="Assets\Scripts\Enemies\Worm.cs" />
+    <Compile Include="Assets\Scripts\Enemies\HealthbarBehavior.cs" />
     <Compile Include="Assets\Scripts\Enemies\Obstacle.cs" />
     <Compile Include="Assets\Scripts\Enemies\WalkingMonster.cs" />
     <Compile Include="Assets\MainMenu.cs" />

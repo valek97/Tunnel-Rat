@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class WalkingMonster : Entity
 {
@@ -11,9 +12,17 @@ public class WalkingMonster : Entity
     private Rigidbody2D rb;
     private Vector3 movement;
     public float moveSpeed = 300f;
+    public int lives = 6;
+    public int Maxlives = 12;
+
+    public HealthbarBehavior HealthbarBehavior;
+
+    
 
     private void Start()
     {
+        lives = Maxlives;
+        HealthbarBehavior.SetHealth(lives, Maxlives);
         dir = transform.right;
         rb = this.GetComponent<Rigidbody2D>();
         player = GameObject.Find("Hero").transform;
@@ -60,6 +69,15 @@ public class WalkingMonster : Entity
         if (collision.gameObject == Hero.Instance.gameObject)
         {
             Hero.Instance.GetDamage();
+            lives--;
+            HealthbarBehavior.SetHealth(lives, Maxlives);
+
+            Debug.Log("У ходуна  " + lives);
+        }
+        if (lives < 1)
+        {
+            HealthbarBehavior.SetHealth(lives, Maxlives);
+            Die();
         }
     }
     void moveCharachters (Vector3 direction)
@@ -73,7 +91,7 @@ public class WalkingMonster : Entity
     private void Update()
     {
         Move();
-
+       
 
     }
 }
