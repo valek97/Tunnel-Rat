@@ -17,8 +17,8 @@ public class Hero : Entity
 
     private States State
     {
-        get { return (States)anim.GetInteger("state"); }
-        set { anim.SetInteger("state",(int)value); }
+        get { return (States)anim.GetFloat("state"); }
+        set { anim.SetFloat("state",(float)value); }
     }
     private void Awake()
     {
